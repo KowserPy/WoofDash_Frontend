@@ -21,6 +21,7 @@ const Task = () => {
 	};
 
 	useEffect(() => {
+		console.log(incompleteTasks);
 		dispatch(fetchTasks());
 	}, [dispatch]);
 
