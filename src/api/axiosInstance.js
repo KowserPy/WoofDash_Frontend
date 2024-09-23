@@ -3,7 +3,8 @@ import store from "../app/store";
 import { clearUser } from "../features/auth/authSlice";
 
 const axiosInstance = axios.create({
-	baseURL: "http://localhost:8000/api/v1",
+	// baseURL: "http://localhost:8000/api/v1",
+	baseURL: "https://woofdash-backend.onrender.com/api/v1",
 	withCredentials: true,
 });
 
