@@ -71,17 +71,17 @@ const TaskModal = ({ task, isOpen, onClose }) => {
 							<h2 className="text-2xl font-bold">{task.title}</h2>
 							<p className="text-yellow-500 font-semibold my-4 text-lg">+{task.reward} WOOF</p>
 							{/* <p className="text-gray-700">{task.description}</p> */}
-							<div className="mt-5 flex flex-col justify-center gap-2">
+							<div className="mt-5 flex flex-col justify-center gap-3">
 								<button
 									className=" w-full bg-blue-500 text-white rounded-lg py-2"
-									onClick={() => completeTaskHandler(task)}
-									disabled={verified}
+									onClick={() => handleJoin(task)}
 								>
 									Subscribe
 								</button>
 								<button
 									className="w-full bg-gray-300 text-gray-700 rounded-lg py-2"
-									onClick={() => handleJoin(task)}
+									onClick={() => completeTaskHandler(task)}
+									disabled={verified}
 								>
 									Check subscription
 								</button>
