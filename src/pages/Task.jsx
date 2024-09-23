@@ -3,6 +3,9 @@ import { useDispatch, useSelector } from "react-redux";
 import woofImg from "../assets/woof.png";
 import { fetchTasks } from "../features/task/TaskSlice";
 import TaskModal from "../components/TaskModal";
+import { FaTelegramPlane } from "react-icons/fa";
+import { FaTwitter } from "react-icons/fa";
+import { FaYoutube } from "react-icons/fa";
 
 const Task = () => {
 	const dispatch = useDispatch();
@@ -41,7 +44,15 @@ const Task = () => {
 			<ul className="flex flex-col gap-2 space-y-4 max-w-md w-full mx-auto bg-gradient-to-r from-blue-200 to-cyan-200 p-5 rounded-lg">
 				{incompleteTasks.map((task, index) => (
 					<li key={index} className="flex items-center gap-2 cursor-pointer" onClick={() => openTask(task)}>
-						<div className="w-14 h-14 flex justify-center items-center bg-gradient-to-r from-violet-200 to-pink-200 rounded-full"></div>
+						<div className="w-14 h-14 text-xl flex justify-center items-center bg-gradient-to-r from-violet-200 to-pink-200 rounded-full">
+							{task.category === "telegram" ? (
+								<FaTelegramPlane />
+							) : task.category === "twitter" ? (
+								<FaTwitter />
+							) : (
+								<FaYoutube />
+							)}
+						</div>
 						<div className="flex flex-col">
 							<p className="text-gray-800 text-xl font-semibold">{task.title}</p>
 							<span className="text-yellow-500 font-semibold">{task.points} WOOF</span>
