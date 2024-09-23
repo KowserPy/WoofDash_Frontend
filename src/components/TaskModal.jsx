@@ -1,7 +1,9 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { IoClose } from "react-icons/io5";
+import { completeTask } from "../features/task/TaskSlice";
 
 const TaskModal = ({ task, isOpen, onClose }) => {
+	const [verified, setVerified] = useState(false);
 	useEffect(() => {
 		if (isOpen) {
 			document.body.style.overflow = "hidden";
@@ -10,9 +12,17 @@ const TaskModal = ({ task, isOpen, onClose }) => {
 		}
 	}, [isOpen]);
 
+	const completeTaskHandler = () => {
+		if (task) {
+			dispatch(completeTask(task._id));
+		}
+		setVerified(false);
+		onClose();
+	};
 	const handleJoin = (task) => {
 		if (task.category === "telegram") {
 			Telegram.WebApp.openTelegramLink(task.link);
+			setVerified(true);
 		} else {
 			Telegram.WebApp.openLink(task.link, { try_instant_view: true });
 		}
@@ -58,7 +68,13 @@ const TaskModal = ({ task, isOpen, onClose }) => {
 							<p className="text-yellow-500 font-semibold my-4 text-lg">+{task.reward} WOOF</p>
 							{/* <p className="text-gray-700">{task.description}</p> */}
 							<div className="mt-5 flex flex-col justify-center gap-2">
-								<button className=" w-full bg-blue-500 text-white rounded-lg py-2">Subscribe</button>
+								<button
+									className=" w-full bg-blue-500 text-white rounded-lg py-2"
+									onClick={() => completeTaskHandler(task)}
+									disabled={verified}
+								>
+									Subscribe
+								</button>
 								<button
 									className="w-full bg-gray-300 text-gray-700 rounded-lg py-2"
 									onClick={() => handleJoin(task)}
