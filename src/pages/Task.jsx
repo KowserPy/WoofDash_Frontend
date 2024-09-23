@@ -45,9 +45,9 @@ const Task = () => {
 				{incompleteTasks.map((task, index) => (
 					<li key={index} className="flex items-center gap-2 cursor-pointer" onClick={() => openTask(task)}>
 						<div className="w-14 h-14 text-xl flex justify-center items-center bg-gradient-to-r from-violet-200 to-pink-200 rounded-full">
-							{task.category === "telegram" ? (
+							{task.taskCategory === "telegram" ? (
 								<FaTelegramPlane />
-							) : task.category === "twitter" ? (
+							) : task.taskCategory === "twitter" ? (
 								<FaTwitter />
 							) : (
 								<FaYoutube />
