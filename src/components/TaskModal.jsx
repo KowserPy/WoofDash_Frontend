@@ -10,6 +10,14 @@ const TaskModal = ({ task, isOpen, onClose }) => {
 		}
 	}, [isOpen]);
 
+	const handleJoin = (task) => {
+		if (task.category === "telegram") {
+			Telegram.WebApp.openTelegramLink(task.link);
+		} else {
+			Telegram.WebApp.openLink(task.link, { try_instant_view: true });
+		}
+	};
+
 	return (
 		<div
 			className={`fixed inset-0 flex justify-center items-end z-50 ${
@@ -51,7 +59,10 @@ const TaskModal = ({ task, isOpen, onClose }) => {
 							{/* <p className="text-gray-700">{task.description}</p> */}
 							<div className="mt-5 flex flex-col justify-center gap-2">
 								<button className=" w-full bg-blue-500 text-white rounded-lg py-2">Subscribe</button>
-								<button className="w-full bg-gray-300 text-gray-700 rounded-lg py-2">
+								<button
+									className="w-full bg-gray-300 text-gray-700 rounded-lg py-2"
+									onClick={() => handleJoin(task)}
+								>
 									Check subscription
 								</button>
 							</div>
