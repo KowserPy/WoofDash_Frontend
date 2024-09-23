@@ -23,7 +23,6 @@ const TaskModal = ({ task, isOpen, onClose }) => {
 		onClose();
 	};
 	const handleJoin = (task) => {
-		console.log(task);
 		if (task.category === "telegram") {
 			Telegram.WebApp.openTelegramLink(task.link);
 			setVerified(true);
@@ -81,7 +80,7 @@ const TaskModal = ({ task, isOpen, onClose }) => {
 								<button
 									className="w-full bg-gray-300 text-gray-700 rounded-lg py-2"
 									onClick={() => completeTaskHandler(task)}
-									disabled={verified}
+									disabled={!verified}
 								>
 									Check subscription
 								</button>
