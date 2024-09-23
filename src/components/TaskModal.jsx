@@ -76,7 +76,7 @@ const TaskModal = ({ task, isOpen, onClose }) => {
 								className="w-16 h-16 mx-auto mb-2"
 							/>
 							<h2 className="text-2xl font-bold">{task.title}</h2>
-							<p className="text-yellow-500 font-semibold my-4 text-lg">+{task.reward} WOOF</p>
+							<p className="text-yellow-500 font-semibold my-4 text-lg">+{task.points} WOOF</p>
 							{/* <p className="text-gray-700">{task.description}</p> */}
 							<div className="mt-5 flex flex-col justify-center gap-3">
 								<button

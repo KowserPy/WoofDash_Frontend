@@ -44,7 +44,7 @@ const Task = () => {
 						<div className="w-14 h-14 flex justify-center items-center bg-gradient-to-r from-violet-200 to-pink-200 rounded-full"></div>
 						<div className="flex flex-col">
 							<p className="text-gray-800 text-xl font-semibold">{task.title}</p>
-							<span className="text-yellow-500 font-semibold">{task.reward} WOOF</span>
+							<span className="text-yellow-500 font-semibold">{task.points} WOOF</span>
 						</div>
 					</li>
 				))}
