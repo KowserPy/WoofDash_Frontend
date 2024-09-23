@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { IoClose } from "react-icons/io5";
 import { completeTask } from "../features/task/TaskSlice";
+import { useDispatch } from "react-redux";
 
 const TaskModal = ({ task, isOpen, onClose }) => {
 	const [verified, setVerified] = useState(false);
+	const dispatch = useDispatch();
+
 	useEffect(() => {
 		if (isOpen) {
 			document.body.style.overflow = "hidden";
