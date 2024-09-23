@@ -19,13 +19,13 @@ const TaskModal = ({ task, isOpen, onClose }) => {
 		if (task) {
 			dispatch(completeTask(task._id));
 		}
-		setVerified(false);
 		onClose();
 	};
 	const handleJoin = (task) => {
 		if (task.category === "telegram") {
 			Telegram.WebApp.openTelegramLink(task.link);
 			setVerified(true);
+			console.log(verified);
 		} else {
 			Telegram.WebApp.openLink(task.link, { try_instant_view: true });
 		}
